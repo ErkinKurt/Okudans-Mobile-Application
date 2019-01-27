@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "267521557065",
+    "firebase_url": "https://okudansapp.firebaseio.com",
+    "project_id": "okudansapp",
+    "storage_bucket": "okudansapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267521557065:android:b90745abfff8bb59",
+        "android_client_info": {
+          "package_name": "com.example.okudansmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267521557065-4cdivs7o2089af6rd7uoo6hvmdkcllgp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmLe5imJPlxOIhZMzUZ5wYt2yX04Oia1Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
