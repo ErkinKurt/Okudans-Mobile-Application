@@ -4,7 +4,6 @@ import 'package:okudans_mobile/BackendService/StudentOperations.dart';
 import 'package:okudans_mobile/StudentUserInterface/studenthome.dart';
 
 class AttendanceScreen extends StatefulWidget {
-
   @override
   AttendanceScreenState createState() {
     return new AttendanceScreenState();
@@ -12,7 +11,6 @@ class AttendanceScreen extends StatefulWidget {
 }
 
 class AttendanceScreenState extends State<AttendanceScreen> {
-
   final myController = TextEditingController();
   final myBabaCont = TextEditingController();
 
@@ -23,10 +21,9 @@ class AttendanceScreenState extends State<AttendanceScreen> {
     super.dispose();
   }
 
-  void succesful(BuildContext context)
-  {
-
-    Session session = new Session("Asuman", new Student(myBabaCont.text, "Temmuz"), myController.text);
+  void succesful(BuildContext context) {
+    Session session = new Session(
+        "Asuman", new Student(myBabaCont.text, "Temmuz"), myController.text);
     StudentOperations studentOs = StudentOperations();
     studentOs.updateSession(session);
 
@@ -44,28 +41,23 @@ class AttendanceScreenState extends State<AttendanceScreen> {
             );
           },
         )
-
-
       ],
-
-
     );
     showDialog(
         context: context,
-        builder: (BuildContext context){
+        builder: (BuildContext context) {
           return alertDialog;
-        }
-    );
+        });
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        resizeToAvoidBottomPadding: false,
         backgroundColor: Colors.grey,
-
         appBar: AppBar(
-          backgroundColor: Colors.blueGrey ,
+          backgroundColor: Colors.blueGrey,
           title: Text("Yoklama Ver"),
         ),
         body: new Container(
@@ -76,41 +68,33 @@ class AttendanceScreenState extends State<AttendanceScreen> {
               new Text("Sınıf Kodunu giriniz :"),
               new TextField(
                 controller: myController,
-                maxLines:2,
+                maxLines: 2,
                 decoration: InputDecoration(
                     contentPadding: const EdgeInsets.all(40.0),
                     border: InputBorder.none,
-                    hintText: 'Buraya giriniz.'
-                ),
+                    hintText: 'Buraya giriniz.'),
               ),
               new Text("Ad - Soyadı Giriniz :"),
               new TextField(
                 controller: myBabaCont,
-                maxLines:2,
+                maxLines: 2,
                 decoration: InputDecoration(
                     contentPadding: const EdgeInsets.all(40.0),
                     border: InputBorder.none,
-                    hintText: 'Buraya giriniz.'
-                ),
+                    hintText: 'Buraya giriniz.'),
               ),
               ButtonTheme(
                 minWidth: 100.0,
                 height: 80.0,
                 child: RaisedButton(
                   color: Colors.green,
-
                   child: Text("Onayla"),
                   onPressed: () => succesful(context),
                 ),
               )
-
-
             ],
           ),
-
         ),
-
-
       ),
     );
   }

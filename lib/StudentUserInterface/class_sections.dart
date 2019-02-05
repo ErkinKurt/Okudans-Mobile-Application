@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-
-class Section extends StatefulWidget{
+class Section extends StatefulWidget {
   @override
   State createState() => SectionState();
 }
 
 class SectionState extends State<Section> {
-  String test= "test";
+  String test = "test";
 
   Widget buildListItem(BuildContext context, DocumentSnapshot document) {
     // TODO: implement build
@@ -26,7 +25,6 @@ class SectionState extends State<Section> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,13 +41,13 @@ class SectionState extends State<Section> {
         body: StreamBuilder(
             //stream: Firestore.instance.collection('sessions').document('1').collection('Students').snapshots(),
             stream: Firestore.instance.collection('sessions').snapshots(),
-            builder: (context, snapshot){
-              if(!snapshot.hasData) return const Text('Loading...');
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) return const Text('Loading...');
               return ListView.builder(
                 itemCount: snapshot.data.documents.length,
-                itemBuilder: (context,index) => buildListItem(context, snapshot.data.documents[index]),
+                itemBuilder: (context, index) =>
+                    buildListItem(context, snapshot.data.documents[index]),
               );
-            })
-          );
+            }));
   }
 }

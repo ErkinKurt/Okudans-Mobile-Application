@@ -5,8 +5,8 @@ import 'StudentUserInterface/login.dart';
 
 void main() {
   runApp(new MaterialApp(
+    debugShowCheckedModeBanner: false,
     title: "Okudans",
-    home: new StudentHome(),
+    home: new OkuDansApp(),
   ));
-
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import './class_sections.dart';
 
-
 class DashboardInstructor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -24,32 +23,33 @@ class DashboardInstructor extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              
               SizedBox(height: 150.0),
-              
               Center(
                 child: Container(
-                        alignment: Alignment(0.0, 0.0),
-                        width: 200.0,
-                        height: 90.0,
-                        child: ButtonTheme(
-                          minWidth: 150.0,
-                          height: 100.0,
-                          child: RaisedButton(
-                            onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => Section()));
-                            },
-                            padding: EdgeInsets.only(
-                                left: 2.0, right: 2.0, bottom: 1.0, top: 1.0),
-                            color: Colors.lightGreen,
-                            child: Text('Yoklama Al',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 25.0,
-                                  fontWeight: FontWeight.bold,
-                                )),
-                          ),
-                        )),
+                    alignment: Alignment(0.0, 0.0),
+                    width: 200.0,
+                    height: 90.0,
+                    child: ButtonTheme(
+                      minWidth: 150.0,
+                      height: 100.0,
+                      child: RaisedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Section()));
+                        },
+                        padding: EdgeInsets.only(
+                            left: 2.0, right: 2.0, bottom: 1.0, top: 1.0),
+                        color: Colors.lightGreen,
+                        child: Text('Yoklama Al',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 25.0,
+                              fontWeight: FontWeight.bold,
+                            )),
+                      ),
+                    )),
               ),
             ],
           )

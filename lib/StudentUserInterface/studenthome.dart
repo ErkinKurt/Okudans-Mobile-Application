@@ -10,55 +10,57 @@ class StudentHome extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-
+          resizeToAvoidBottomPadding: false,
           backgroundColor: Colors.black,
-          appBar: AppBar(
-
-            backgroundColor: Colors.blueGrey ,
-            title: Text("OKUDANS"),
-          ),
-          body: Container(
-            color: Colors.black,
-            margin: EdgeInsets.only(left: 80.0),
-            padding: EdgeInsets.only(bottom: 40.0),
-
-            child: new Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-
-                Image(
-                  image: AssetImage('Assets/okudans.png'),
-
-
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom:50.0,top: 38.0),
-
-                ),
-                ButtonTheme(
-                  minWidth: 100.0,
-                  height: 80.0,
-                  child: RaisedButton(
-                    color: Colors.green,
-                    child: Text('Yoklama ver'),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => AttendanceScreen()),
-                      );
-                    },
-
+          body: new Stack(
+            children: <Widget>[
+              new Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  new Container(
+                    height: 65.0,
                   ),
-
-                ),
-
-              ],
-            ),
-
-
+                  new Container(
+                    height: 100.0,
+                    padding: EdgeInsets.only(left: 5.0, right: 5.0),
+                    child: new Image(
+                      image: new AssetImage("assets/images/logo.png"),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  SizedBox(height: 150.0),
+                  Center(
+                    child: Container(
+                        alignment: Alignment(0.0, 0.0),
+                        width: 200.0,
+                        height: 90.0,
+                        child: ButtonTheme(
+                          minWidth: 150.0,
+                          height: 100.0,
+                          child: RaisedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          AttendanceScreen()));
+                            },
+                            padding: EdgeInsets.only(
+                                left: 2.0, right: 2.0, bottom: 1.0, top: 1.0),
+                            color: Colors.lightGreen,
+                            child: Text('Yoklama Ver',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 25.0,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                          ),
+                        )),
+                  ),
+                ],
+              )
+            ],
           ),
-        )
-    );
-
+        ));
   }
 }

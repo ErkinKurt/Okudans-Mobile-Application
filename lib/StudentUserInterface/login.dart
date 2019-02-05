@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './dashboard_instructor.dart';
 import './class_sections.dart';
 import 'package:flutter/services.dart';
+import 'package:okudans_mobile/util/login_logic.dart';
 
 class OkuDansApp extends StatelessWidget {
   @override
@@ -28,6 +29,7 @@ class Login extends StatefulWidget {
 }
 
 class LoginPageState extends State<Login> {
+  final username = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -60,6 +62,7 @@ class LoginPageState extends State<Login> {
                     Container(
                       padding: EdgeInsets.fromLTRB(40.0, 85.0, 40.0, 20.0),
                       child: new TextFormField(
+                        controller: username,
                         autofocus: true,
                         decoration: new InputDecoration(
                             fillColor: Colors.blueGrey,
@@ -111,11 +114,7 @@ class LoginPageState extends State<Login> {
                           height: 100.0,
                           child: RaisedButton(
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          DashboardInstructor()));
+                              LoginLogic(username.text, context);
                             },
                             padding: EdgeInsets.only(
                                 left: 2.0, right: 2.0, bottom: 1.0, top: 1.0),
