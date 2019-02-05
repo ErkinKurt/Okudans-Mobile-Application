@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:okudans_mobile/StudentUserInterface/add_section.dart';
 
 class Section extends StatefulWidget {
   @override
@@ -29,6 +30,19 @@ class SectionState extends State<Section> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          actions: <Widget>[
+            new IconButton(
+              tooltip: "Section Ekle",
+              iconSize: 50.0,
+              alignment: Alignment.topRight,
+              color: Colors.blueAccent,
+              icon: new Icon(Icons.add),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AddSection()));
+              },
+            ),
+          ],
           backgroundColor: Colors.black,
           title: Text('Asuman',
               style: TextStyle(
