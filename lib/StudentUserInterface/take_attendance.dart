@@ -2,15 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:okudans_mobile/BackendService/StudentOperations.dart';
 
-class AddSection extends StatefulWidget {
+class TakeAttendance extends StatefulWidget {
+  TakeAttendance({this.session});
+  final DocumentSnapshot session;
   @override
-  State createState() => SectionFormState();
+  State createState() => TakeAttendanceState(session: session);
 }
 
-class SectionFormState extends State<AddSection> {
+class TakeAttendanceState extends State<TakeAttendance> {
+  TakeAttendanceState({this.session});
+
+  DocumentSnapshot session;
+
   var document = Firestore.instance.collection("sessions");
-  var session =
-      Session("Asuman", new Student("TestName", "TestMonth"), "Section 2");
+
   var studentOs = StudentOperations();
 
   void initState() {
@@ -23,7 +28,7 @@ class SectionFormState extends State<AddSection> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: Text(
-          'Section Oluştur',
+          'Yoklama Al',
           style: TextStyle(
             color: Colors.blueAccent,
             fontSize: 25.0,
@@ -38,7 +43,7 @@ class SectionFormState extends State<AddSection> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             new Container(
-              height: 10.0,
+              height: 42.0,
             ),
             new Container(
               margin: EdgeInsets.only(left: 35.0),
@@ -59,15 +64,16 @@ class SectionFormState extends State<AddSection> {
                         Container(
                           padding: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 20.0),
                           child: new TextFormField(
-                            autofocus: true,
+                            enabled: false,
+                            initialValue: session.data['ClassName'],
                             decoration: new InputDecoration(
                                 fillColor: Colors.white,
                                 filled: true,
                                 border: OutlineInputBorder(),
-                                hintText: "Section Adı",
+                                /*hintText: "Section Adı",
                                 hintStyle: TextStyle(
                                     color: Colors.grey,
-                                    fontWeight: FontWeight.w900),
+                                    fontWeight: FontWeight.w900),*/
                                 contentPadding:
                                     EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 1.0)),
                             style: TextStyle(
@@ -100,15 +106,15 @@ class SectionFormState extends State<AddSection> {
                         Container(
                           padding: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 20.0),
                           child: new TextFormField(
-                            autofocus: true,
+                            enabled: false,
                             decoration: new InputDecoration(
                                 fillColor: Colors.white,
                                 filled: true,
                                 border: OutlineInputBorder(),
-                                hintText: "Section Adı",
+                                /*hintText: "Section Adı",
                                 hintStyle: TextStyle(
                                     color: Colors.grey,
-                                    fontWeight: FontWeight.w900),
+                                    fontWeight: FontWeight.w900),*/
                                 contentPadding:
                                     EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 1.0)),
                             style: TextStyle(
@@ -121,30 +127,29 @@ class SectionFormState extends State<AddSection> {
                           ),
                         ),
                         SizedBox(height: 45.0),
-
-                    Container(
-                        alignment: Alignment(1.0, 1.0),
-                        width: 325.0,
-                        height: 50.0,
-                        child: ButtonTheme(
-                          minWidth: 175.0,
-                          height: 100.0,
-                          child: RaisedButton(
-                            onPressed: () {
-                             
-                            },
-                            padding: EdgeInsets.only(
-                                left: 2.0, right: 2.0, bottom: 1.0, top: 1.0),
-                            color: Colors.lightGreen,
-                            child: Text('Sınıf Oluştur',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 25.0,
-                                  fontWeight: FontWeight.bold,
-                                )),
-                          ),
-                        )),
-
+                        Container(
+                            alignment: Alignment(1.0, 1.0),
+                            width: 325.0,
+                            height: 50.0,
+                            child: ButtonTheme(
+                              minWidth: 150.0,
+                              height: 100.0,
+                              child: RaisedButton(
+                                onPressed: () {},
+                                padding: EdgeInsets.only(
+                                    left: 2.0,
+                                    right: 2.0,
+                                    bottom: 1.0,
+                                    top: 1.0),
+                                color: Colors.lightGreen,
+                                child: Text('Yoklama Al',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                              ),
+                            )),
                       ],
                     ))),
           ],

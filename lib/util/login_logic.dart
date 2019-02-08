@@ -18,7 +18,7 @@ void _showDialog(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: new Text("FAZİA !"),
+        title: new Text("DİKKAT !"),
         content: new Text("Lütfen girmiş olduğunuz bilgileri kontrol ediniz.."),
         actions: <Widget>[
           new FlatButton(

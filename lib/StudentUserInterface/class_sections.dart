@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:okudans_mobile/StudentUserInterface/add_section.dart';
+import 'package:okudans_mobile/BackendService/StudentOperations.dart';
+import 'package:okudans_mobile/StudentUserInterface/take_attendance.dart';
+import 'package:okudans_mobile/util/select_class.dart';
 
 class Section extends StatefulWidget {
   @override
@@ -8,22 +11,29 @@ class Section extends StatefulWidget {
 }
 
 class SectionState extends State<Section> {
-  String test = "test";
+  DocumentSnapshot selectedSection;
 
   Widget buildListItem(BuildContext context, DocumentSnapshot document) {
     // TODO: implement build
-    return ListTile(
-      title: Row(
-        children: <Widget>[
-          Expanded(
-            child: Text(
-              document['ClassName'],
-              style: Theme.of(context).textTheme.headline,
-            ),
-          )
-        ],
-      ),
-    );
+    return GestureDetector(
+        onTap: () {
+          // debugPrint("Ah uh Hadi HADİ." + document.data["ClassName"]);
+          selectedSection = document;
+          SelectClass(selectedSection, context);
+        },
+        child: ListTileTheme(
+            child: ListTile(
+          title: Row(
+            children: <Widget>[
+              Expanded(
+                child: Text(
+                  document.documentID,
+                  style: Theme.of(context).textTheme.headline,
+                ),
+              )
+            ],
+          ),
+        )));
   }
 
   @override
@@ -53,7 +63,7 @@ class SectionState extends State<Section> {
         ),
         backgroundColor: Colors.grey,
         body: StreamBuilder(
-            //stream: Firestore.instance.collection('sessions').document('1').collection('Students').snapshots(),
+            //stream: Firestore.instance.collection('sessions').document('$data.docum').collection('Students').snapshots(),
             stream: Firestore.instance.collection('sessions').snapshots(),
             builder: (context, snapshot) {
               if (!snapshot.hasData) return const Text('Loading...');

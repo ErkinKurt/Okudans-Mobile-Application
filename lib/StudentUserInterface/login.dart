@@ -63,7 +63,6 @@ class LoginPageState extends State<Login> {
                       padding: EdgeInsets.fromLTRB(40.0, 85.0, 40.0, 20.0),
                       child: new TextFormField(
                         controller: username,
-                        autofocus: true,
                         decoration: new InputDecoration(
                             fillColor: Colors.blueGrey,
                             filled: true,
@@ -84,7 +83,6 @@ class LoginPageState extends State<Login> {
                     Container(
                       padding: EdgeInsets.fromLTRB(40.0, 10.0, 40.0, 1.0),
                       child: new TextFormField(
-                        autofocus: true,
                         decoration: new InputDecoration(
                             fillColor: Colors.blueGrey,
                             filled: true,
