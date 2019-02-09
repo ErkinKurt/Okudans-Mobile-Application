@@ -65,7 +65,7 @@ class TakeAttendanceState extends State<TakeAttendance> {
                           padding: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 20.0),
                           child: new TextFormField(
                             enabled: false,
-                            initialValue: session.data['ClassName'],
+                            initialValue: session.data['className'],
                             decoration: new InputDecoration(
                                 fillColor: Colors.white,
                                 filled: true,
@@ -107,6 +107,7 @@ class TakeAttendanceState extends State<TakeAttendance> {
                           padding: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 20.0),
                           child: new TextFormField(
                             enabled: false,
+                            initialValue: session.data['sessionDate'].toString().substring(0, 10),
                             decoration: new InputDecoration(
                                 fillColor: Colors.white,
                                 filled: true,

@@ -21,19 +21,30 @@ class SectionState extends State<Section> {
           selectedSection = document;
           SelectClass(selectedSection, context);
         },
-        child: ListTileTheme(
-            child: ListTile(
-          title: Row(
-            children: <Widget>[
-              Expanded(
-                child: Text(
-                  document.documentID,
-                  style: Theme.of(context).textTheme.headline,
+        child: Container(
+
+          decoration: BoxDecoration(color: Colors.blueAccent, border: new Border.all(color: Colors.grey   , width: 3)),
+          child: ListTileTheme(
+              child: ListTile(
+                contentPadding: new EdgeInsets.all(10.0),
+                title: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Text(
+                        document.data['className'],
+                        style: Theme.of(context).textTheme.headline,
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        document.data['sessionDate'].toString().substring(0, 10),
+                        style: Theme.of(context).textTheme.headline,
+                      ),
+                    )
+                  ],
                 ),
-              )
-            ],
-          ),
-        )));
+              )),
+        ));
   }
 
   @override

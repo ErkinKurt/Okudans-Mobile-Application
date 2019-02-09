@@ -68,14 +68,14 @@ class StudentOperations {
 
 class Session {
   String className;
-  Timestamp sessionDate;
+  FieldValue sessionDate;
   String sessionId;
 
   Student student;
 
   List<Student> studentList;
 
-  Session(this.className, this.student, this.sessionId);
+  Session(this.className, {this.student, this.sessionId, this.sessionDate});
 
   Map<int, dynamic> studentListToMap() {
     var map = new Map<int, dynamic>();
