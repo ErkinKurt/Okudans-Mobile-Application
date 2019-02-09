@@ -31,7 +31,7 @@ class TakeAttendanceState extends State<TakeAttendance> {
           'Yoklama Al',
           style: TextStyle(
             color: Colors.blueAccent,
-            fontSize: 25.0,
+            fontSize: 30.0,
             fontWeight: FontWeight.bold,
           ),
         ),
