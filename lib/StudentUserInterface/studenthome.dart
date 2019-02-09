@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:okudans_mobile/StudentUserInterface/studentattendancescreen.dart';
 import 'package:okudans_mobile/StudentUserInterface/attendancescreen.dart';
 
 class StudentHome extends StatelessWidget {

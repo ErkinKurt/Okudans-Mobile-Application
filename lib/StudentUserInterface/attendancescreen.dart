@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:okudans_mobile/StudentUserInterface/studentattendancescreen.dart';
 import 'package:okudans_mobile/BackendService/StudentOperations.dart';
 import 'package:okudans_mobile/StudentUserInterface/studenthome.dart';
 
@@ -23,7 +22,7 @@ class AttendanceScreenState extends State<AttendanceScreen> {
 
   void succesful(BuildContext context) {
     Session session = new Session(
-        "Asuman", new Student(myBabaCont.text, "Temmuz"), myController.text);
+        "Asuman", student: new Student(myBabaCont.text, "August"), sessionId: myController.text);
     StudentOperations studentOs = StudentOperations();
     studentOs.updateSession(session);
 

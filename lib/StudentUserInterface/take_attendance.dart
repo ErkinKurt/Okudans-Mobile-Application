@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:okudans_mobile/BackendService/StudentOperations.dart';
+import 'package:okudans_mobile/StudentUserInterface/section_studentlist.dart';
 
 class TakeAttendance extends StatefulWidget {
   TakeAttendance({this.session});
@@ -65,7 +66,7 @@ class TakeAttendanceState extends State<TakeAttendance> {
                           padding: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 20.0),
                           child: new TextFormField(
                             enabled: false,
-                            initialValue: session.data['ClassName'],
+                            initialValue: session.data['className'],
                             decoration: new InputDecoration(
                                 fillColor: Colors.white,
                                 filled: true,
@@ -107,6 +108,7 @@ class TakeAttendanceState extends State<TakeAttendance> {
                           padding: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 20.0),
                           child: new TextFormField(
                             enabled: false,
+                            initialValue: session.data['sessionDate'].toString().substring(0, 10),
                             decoration: new InputDecoration(
                                 fillColor: Colors.white,
                                 filled: true,
@@ -135,7 +137,10 @@ class TakeAttendanceState extends State<TakeAttendance> {
                               minWidth: 150.0,
                               height: 100.0,
                               child: RaisedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                      context, MaterialPageRoute(builder: (context) => StudentList(documentSnapshot: this.session,)));
+                                },
                                 padding: EdgeInsets.only(
                                     left: 2.0,
                                     right: 2.0,

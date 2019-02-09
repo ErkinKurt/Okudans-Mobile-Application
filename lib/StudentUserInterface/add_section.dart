@@ -9,8 +9,6 @@ class AddSection extends StatefulWidget {
 
 class SectionFormState extends State<AddSection> {
   var document = Firestore.instance.collection("sessions");
-  var session =
-      Session("Asuman", new Student("TestName", "TestMonth"), "Section 2");
   var studentOs = StudentOperations();
 
   void initState() {
@@ -59,15 +57,12 @@ class SectionFormState extends State<AddSection> {
                         Container(
                           padding: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 20.0),
                           child: new TextFormField(
-                            autofocus: true,
+                            initialValue: "Asuman",
+                            enabled: false,
                             decoration: new InputDecoration(
                                 fillColor: Colors.white,
                                 filled: true,
                                 border: OutlineInputBorder(),
-                                hintText: "Section Adı",
-                                hintStyle: TextStyle(
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.w900),
                                 contentPadding:
                                     EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 1.0)),
                             style: TextStyle(
@@ -100,15 +95,12 @@ class SectionFormState extends State<AddSection> {
                         Container(
                           padding: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 20.0),
                           child: new TextFormField(
-                            autofocus: true,
+                            initialValue: DateTime.now().toUtc().toString().substring(0,10),
+                            enabled: false,
                             decoration: new InputDecoration(
                                 fillColor: Colors.white,
                                 filled: true,
                                 border: OutlineInputBorder(),
-                                hintText: "Section Adı",
-                                hintStyle: TextStyle(
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.w900),
                                 contentPadding:
                                     EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 1.0)),
                             style: TextStyle(
@@ -131,7 +123,11 @@ class SectionFormState extends State<AddSection> {
                           height: 100.0,
                           child: RaisedButton(
                             onPressed: () {
-                             
+                              var session = new Session("Asuman", sessionDate: FieldValue.serverTimestamp());
+                             studentOs.generateSession(session);
+                              new Future.delayed(new Duration(seconds: 1), () {
+                                Navigator.pop(context); //pop dialog
+                              });
                             },
                             padding: EdgeInsets.only(
                                 left: 2.0, right: 2.0, bottom: 1.0, top: 1.0),
@@ -144,7 +140,6 @@ class SectionFormState extends State<AddSection> {
                                 )),
                           ),
                         )),
-
                       ],
                     ))),
           ],

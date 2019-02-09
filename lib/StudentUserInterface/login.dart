@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:okudans_mobile/util/login_logic.dart';
 
 class OkuDansApp extends StatelessWidget {
+  double width, height;
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
@@ -29,9 +31,12 @@ class Login extends StatefulWidget {
 }
 
 class LoginPageState extends State<Login> {
+  double width, height;
   final username = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    width = MediaQuery.of(context).size.width;
+    height = MediaQuery.of(context).size.height;
     return new Scaffold(
       resizeToAvoidBottomPadding: false,
       backgroundColor: Colors.black,
@@ -41,10 +46,10 @@ class LoginPageState extends State<Login> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               new Container(
-                height: 85.0,
+                height: this.height * 0.1,//height: 85.0,
               ),
               new Container(
-                height: 100.0,
+                height: this.height * 0.17, //height: 100.0
                 padding: EdgeInsets.only(left: 5.0, right: 5.0),
                 child: new Image(
                   image: new AssetImage("assets/images/logo.png"),
