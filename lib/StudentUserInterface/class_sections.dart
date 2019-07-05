@@ -11,7 +11,6 @@ class SectionState extends State<Section> {
   String test= "test";
 
   Widget buildListItem(BuildContext context, DocumentSnapshot document) {
-    // TODO: implement build
     return ListTile(
       title: Row(
         children: <Widget>[

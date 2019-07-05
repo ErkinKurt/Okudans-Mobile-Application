@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class StudentOperations {
@@ -14,8 +16,6 @@ class StudentOperations {
     sessionCollectionStudentRef = db.collection('sessions').document('1').collection('Students');
   }
 
-
-  //TODO(ERKİN) Find a way to get a document with a query via transaction
   Future updateSession(Session session) async {
     sessionCollectionStudentRef.document(session.student.studentName).setData(session.student.toMap()).then((void v) => print("Error"));
   }
