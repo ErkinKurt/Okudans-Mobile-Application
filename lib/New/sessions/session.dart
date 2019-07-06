@@ -1,18 +1,19 @@
-import 'package:okudans_mobile/New/sessions/regular_session.dart';
+import 'package:okudans_mobile/New/roles/person.dart';
+import 'package:okudans_mobile/New/roles/student.dart';
 
  const String REGULAR_SESSION = 'REGULAR_CLASS';
 
 abstract class Session {
   
-  Session ();
   String sessionName;
+  List<Person> students; 
   
-  factory Session.fromTypeName(String typeName){
-    if(typeName == REGULAR_SESSION){
-      return RegularSession();
-    }
-    else {
-      return null;
-    }
+  Session();
+
+  void addNewStudent(Student student){
+    students.add(student);
   }
+
+  void deleteStudent();
+
 }
