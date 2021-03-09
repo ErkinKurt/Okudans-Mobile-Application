@@ -1,8 +1,9 @@
 # okudans_mobile
 
-Okudans Mobile App
+  Okudans Mobile App
 
-## Getting Started
+## Description
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+  Very First Flutter Project with latinOC. It's implemented for dance tutors to create their classes, add students and get live attendance by providing 4 digit code   to their students. 
+
+  Project uses firebase to store data, and implement live attendance changes. 
